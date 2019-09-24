@@ -14,7 +14,7 @@ import java.io.StringReader;
  * @author daniel
  */
 public class Prueba03 {
-    private static Object stringToRead;
+    
 
     /**
      * @param args the command line arguments
@@ -25,13 +25,13 @@ public class Prueba03 {
         try{
             ReadCharacters();
         }catch(IOException e){
-            System.out.println("Error");
+            System.out.println("Error "+ e);
         }
-        
     }
+        
     /*
-        @param 
-    */
+        Clase para leer 
+    */   
     public static void ReadCharacters()throws IOException{
         //Crear StringBuilder 
         StringBuilder stringLeer = new StringBuilder();
@@ -40,25 +40,28 @@ public class Prueba03 {
         stringLeer.append("Comienzo de segunda linea");
         stringLeer.append("Comienzo tercera linea");
 
-        /*
-            Utilizar un try/catch para usar la función ready de StringReader que
-            devuelve un boolean que permite o no saber si el 
-        */
+        
          //Creacion de String reader en el cual se le pasa el StringBuilder en ToString y luego lo imprime por pantalla
             StringReader reader = new StringReader(stringLeer.toString());
             
             /*
             Utilizar un try/catch para usar la función ready de StringReader.read que 
-            debuelve un -1 si llega al final del array de caracteres            
+            debuelve un -1 si llega al final del array de caracteres y luego lo imprime
+            por pantalla hasta el final del String        
             */            
             int k=0;  
             while((k=reader.read())!=-1){  
                 System.out.print((char)k);  
             }  
             
+        reader.close();
+            
                 
             
-    }        
+    }
+    
+    
+           
        
 }
     
